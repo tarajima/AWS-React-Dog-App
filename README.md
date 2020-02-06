@@ -1,4 +1,4 @@
-# AWS Cognito Dog Application
+# AWS React Dog Application
 
 This application was developed with the React framework and implements several AWS features. Amazon Cognito was implemented to facilitate user sign up, sign in, and access control. Users can register and login to view a page of dogs available for adoption. Only logged in users are allowed access to these pages, with authorization facilitated by Cognito and persisting until the user logs out.
 
