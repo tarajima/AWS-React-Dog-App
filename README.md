@@ -13,9 +13,9 @@ Users can register through a form through the website which is integrated with C
 
 They will then receive a verificaton email to verify their registration with their email address.
 
-![Verification Screen](./images/verificaton-link.png)
+![Verification Screen](./images/verification-link.png)
 
-The conventional account functionalities are also implememnted with Cognito, such as allowing users to reset their password.
+The conventional account functionalities are also implemented with Cognito, such as allowing users to reset their password.
 
 ![Forgot Password Screen](./images/forgot-password.png)
 
