@@ -1,68 +1,43 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# AWS Cognito Dog Application
 
-## Available Scripts
+This application was developed with the React framework and implements several AWS features. Amazon Cognito was implemented to facilitate user sign up, sign in, and access control. Users can register and login to view a page of dogs available for adoption. Only logged in users are allowed access to these pages, with authorization facilitated by Cognito and persisting until the user logs out.
 
-In the project directory, you can run:
+The data for the listing of dogs is contained in an AWS DynamoDB table, and S3 bucket for the images. Lambda functions were implemented and connected to an API Gateway to make calls within the application in order to retrieve the data for the dog listing.
 
-### `yarn start`
+## AWS Implementation Samples
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Cognito Sign-up
+Users can register through a form through the website which is integrated with Cognito.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+![Registration Screen](./images/registration.png)
 
-### `yarn test`
+They will then receive a verificaton email to verify their registration with their email address.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Verification Screen](./images/verificaton-link.png)
 
-### `yarn build`
+The conventional account functionalities are also implememnted with Cognito, such as allowing users to reset their password.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Forgot Password Screen](./images/forgot-password.png)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+When users submit the form, they will receive a verificaton code from the Cognito service to reset their password.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Verificaton Code Screen](./images/verification-code.png)
 
-### `yarn eject`
+### API and Lambda
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Below is an example of a Lambda function that is used to get a single instance of a dog from the DynamoDB database table. The lambda takes an id parameter to obtain the appropriate instance from the 'Dogs' table.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Get Dog Lambda Function](./images/get-dog-lambda.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+In the React client, the API call is made to a GET method in the API Gateway which triggers the Lambda function above, and retrieves the appropriate dog data.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![Dog Detail Screen](./images/dog-detail.png)
 
-## Learn More
+If the user is not logged in, they will not be authorized to view the page and will instead see the screen below.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Unautorized Screen](./images/unauthorized.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
