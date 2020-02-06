@@ -1,0 +1,23 @@
+.page-header {
+  text-align: center;
+}
+
+.auth-message {
+  margin-top: 40px;
+  color: rgb(167, 1, 1);
+  text-align: center;
+}
+
+.dog-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.dog-container .dog {
+  margin: 20px 0;
+}
+
+.dog-container h1 {
+  text-align: center;
+}
